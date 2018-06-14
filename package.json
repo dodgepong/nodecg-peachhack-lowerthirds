@@ -1,0 +1,49 @@
+{
+  "name": "nodecg-peachhack-lowerthirds",
+  "version": "0.0.0",
+  "description": "Dynamic broadcast graphics rendered in a browser",
+  "homepage": "http://nodecg.com/",
+  "author": {
+    "name": "Ben Torell",
+    "email": "dodgepong@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "~0.9.9",
+    "dashboardPanels": [
+      {
+        "name": "lowerthirds-control",
+        "title": "Lower Thirds Control",
+        "width": 6,
+        "file": "lowerthirds-control.html",
+        "headerColor": "#9f9bbd"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "commentator-lowerthird.html",
+        "width": 1920,
+        "height": 1080
+      },
+      {
+        "file": "crowd-lowerthird.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "gsap": "^2.0.1"
+  }
+}
