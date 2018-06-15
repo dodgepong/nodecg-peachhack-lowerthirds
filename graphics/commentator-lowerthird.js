@@ -23,7 +23,7 @@
     }
 
     function hideCommentators() {
-        TweenMax.to('#lowerThird', 1, {opacity: 0});
+        TweenMax.to('#lowerThird', 1, {opacity: 0, ease: Power1.easeIn});
         showing = false;
     }
 
