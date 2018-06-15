@@ -29,6 +29,7 @@ module.exports = function (nodecg) {
             line2: ""
         }
     }
+
     const crowdInitialValue = {
         default: {
             line1: "",
@@ -38,6 +39,9 @@ module.exports = function (nodecg) {
         line2: ""
     };
 
+    const splashTextInitialValue = "";
+
     const r_commentatorsLowerThird = nodecg.Replicant('commentatorsLowerThird', {defaultValue: commentatorsInitialValue});
     const r_crowdLowerThird = nodecg.Replicant('crowdLowerThird', {defaultValue: crowdInitialValue});
+    const r_splashText = nodecg.Replicant('splashText', {defaultValue: splashTextInitialValue});
 };

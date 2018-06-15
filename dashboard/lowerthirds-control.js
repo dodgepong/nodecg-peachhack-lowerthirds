@@ -179,4 +179,25 @@
         setCrowdDefault();
     });
 
+
+
+    ////--------------------------
+    //// at what point do i make these separate bundles
+    ////--------------------------
+
+
+
+    const i_splashText = document.getElementById('splashText');
+    const b_updateSplashText = document.getElementById('updateSplashText');
+
+    const r_splashText = nodecg.Replicant('splashText');
+
+    nodecg.readReplicant('splashText', splashText => {
+        i_splashText.value = splashText;
+	});
+
+    b_updateSplashText.addEventListener('click', () => {
+        r_splashText.value = i_splashText.value;
+    });
+
 })();
