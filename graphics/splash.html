@@ -6,23 +6,63 @@
         body {
             margin: 0;
             padding: 0;
+            background-image: url('splash-background-mo.png');
         }
 
-        #splashText {
+        #title {
             position: absolute;
-            left: 1200px;
-            top: 750px;
-            width: 700px;
-            text-align: right;
+            top: 400px;
+            width: 100%;
+            text-align: center;
+            font-size: 100px;
+            font-family: "Rounded Elegance";
+            font-weight: bold;
+            color: white;
+            text-shadow: rgba(0,0,0,.8) 1px 5px 10px;
+        }
+
+        #returnTimeContainer {
+            position: absolute;
+            top: 800px;
+            width: 100%;
+            text-align: center;
+            font-family: "Rounded Elegance";
+            font-weight: bold;
+            color: white;
+            text-shadow: rgba(0,0,0,.8) 1px 3px 10px;
+        }
+
+        #returnText {
+            font-size: 46px;
+        }
+
+        #returnTime {
+            margin-top: 10px;
+            font-size: 80px;
+        }
+
+        #comingUp {
+            position: absolute;
+            top: 1000px;
+            width: 100%;
+            text-align: center;
             font-size: 46px;
             font-family: "Rounded Elegance";
+            font-weight: bold;
             color: white;
+            text-shadow: rgba(0,0,0,.8) 1px 3px 10px;
         }
     </style>
 </head>
 <body>
-    <div id="splashText"></div>
+    <div id="title"></div>
+    <div id="returnTimeContainer">
+        <div id="returnText">Live broadcast will return</div>
+        <div id="returnTime"></div>
+    </div>
+    <div id="comingUp"></div>
 
+    <script src="../node_modules/moment/moment.js"></script>
     <script src="splash.js"></script>
 </body>
 </html>

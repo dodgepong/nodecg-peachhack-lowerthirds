@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 </head>
 <body>
+
+    <style is="custom-style">
+        .time {
+            width: 50px;
+        }
+    </style>
+
     <form onsubmit="return false;">
         <div class="field is-horizontal">
             <div class="field-label is-normal">
@@ -124,12 +131,57 @@
     <form onsubmit="return false;">
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Splash Text</label>
+                <label class="label">Splash Title</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <div class="control is-expanded">
-                        <input class="input" id="splashText" type="input" />
+                        <input class="input" id="splashTitle" type="input" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Splash Coming Up</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control is-expanded">
+                        <input class="input" id="splashComingUp" type="input" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Return Time</label>
+            </div>
+            <div class="field-body">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <input class="input time" type="text" id="returnHour" placeholder="HH" />
+                    </div>
+                    <div class="control">
+                        <input class="input time" type="text" id="returnMinute" placeholder="MM" />
+                    </div>
+                    <div class="control">
+                        <input class="input time" type="text" id="returnSecond" placeholder="SS" />
+                    </div>
+                    <div class="control">
+                        <button class="button is-info" id="clearTime">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Rewind Text</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control is-expanded">
+                        <input class="input" id="rewindText" type="input" />
                     </div>
                 </div>
             </div>
@@ -141,6 +193,7 @@
         </div>
     </form>
 
+    <script src="../node_modules/moment/moment.js"></script>
     <script src="lowerthirds-control.js"></script>
 </body>
 </html>

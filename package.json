@@ -43,6 +43,11 @@
         "file": "splash.html",
         "width": 1920,
         "height": 1080
+      },
+      {
+        "file": "rewind.html",
+        "width": 1920,
+        "height": 1080
       }
     ]
   },

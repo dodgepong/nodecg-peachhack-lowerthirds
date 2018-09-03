@@ -24,7 +24,7 @@
         i_commentator2Line2.value = commentatorsLowerThird.section2.line2;
         i_commentator3Line1.value = commentatorsLowerThird.section3.line1;
         i_commentator3Line2.value = commentatorsLowerThird.section3.line2;
-	});
+    });
 
     function setCommentatorsLowerThirdValues() {
         var currentCommentatorsLowerThird = r_commentatorsLowerThird.value;
@@ -121,7 +121,7 @@
     nodecg.readReplicant('crowdLowerThird', crowdLowerThird => {
         i_crowd1.value = crowdLowerThird.line1;
         i_crowd2.value = crowdLowerThird.line2;
-	});
+    });
 
     function setCrowdLowerThirdValues() {
         var currentCrowdLowerThird = r_crowdLowerThird.value;
@@ -187,17 +187,76 @@
 
 
 
-    const i_splashText = document.getElementById('splashText');
+    const i_splashTitle = document.getElementById('splashTitle');
+    const i_splashComingUp = document.getElementById('splashComingUp');
+    const i_rewindText = document.getElementById('rewindText');
+
+    const i_returnHour = document.getElementById('returnHour');
+    const i_returnMinute = document.getElementById('returnMinute');
+    const i_returnSecond = document.getElementById('returnSecond');
+
     const b_updateSplashText = document.getElementById('updateSplashText');
+    const b_clearTime = document.getElementById('clearTime');
 
     const r_splashText = nodecg.Replicant('splashText');
 
-    nodecg.readReplicant('splashText', splashText => {
-        i_splashText.value = splashText;
-	});
+    b_clearTime.addEventListener('click', () => {
+        setReturnTime("");
+    });
+
+    function getReturnTime() {
+        var returnHour = parseInt(document.getElementById('returnHour').value);
+        if (isNaN(returnHour)) {
+            return false;
+        }
+        var returnMinute = parseInt(document.getElementById('returnMinute').value);
+        if (isNaN(returnMinute)) {
+            return false;
+        }
+        var returnSecond = parseInt(document.getElementById('returnSecond').value);
+        if (isNaN(returnSecond)) {
+            return false;
+        }
+
+        var now = moment();
+        if (returnHour < now.hour()) {
+            now.add(1, 'days');
+        }
+
+        return now.hour(returnHour).minute(returnMinute).second(returnSecond);
+    }
+
+    function setReturnTime(newTime) {
+        if (!newTime || newTime === "" || !newTime.isValid()) {
+            document.getElementById('returnHour').value = "";
+            document.getElementById('returnMinute').value = "";
+            document.getElementById('returnSecond').value = "";
+        } else {
+            document.getElementById('returnHour').value = newTime.hour();
+            document.getElementById('returnMinute').value = newTime.minute();
+            document.getElementById('returnSecond').value = newTime.second();
+        }
+    }
+
+    nodecg.readReplicant('splashText', splash => {
+        i_splashTitle.value = splash.title;
+        i_splashComingUp.value = splash.comingUp;
+        i_rewindText.value = splash.rewind;
+
+        setReturnTime(moment(splash.returnTime));
+    });
 
     b_updateSplashText.addEventListener('click', () => {
-        r_splashText.value = i_splashText.value;
+        r_splashText.value.title = i_splashTitle.value;
+        r_splashText.value.comingUp = i_splashComingUp.value;
+        r_splashText.value.rewind = i_rewindText.value;
+
+        const returnTime = getReturnTime();
+        if (returnTime) {
+            r_splashText.value.returnTime = returnTime.format()
+        } else {
+            r_splashText.value.returnTime = null;
+        }
     });
 
 })();

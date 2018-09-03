@@ -39,7 +39,12 @@ module.exports = function (nodecg) {
         line2: ""
     };
 
-    const splashTextInitialValue = "";
+    const splashTextInitialValue = {
+        title: "",
+        comingUp: "",
+        rewind: "",
+        returnTime: null
+    };
 
     const r_commentatorsLowerThird = nodecg.Replicant('commentatorsLowerThird', {defaultValue: commentatorsInitialValue});
     const r_crowdLowerThird = nodecg.Replicant('crowdLowerThird', {defaultValue: crowdInitialValue});
