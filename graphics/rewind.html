@@ -6,23 +6,50 @@
         body {
             margin: 0;
             padding: 0;
-            background-image: url('Background.png');
+            background-image: url('rewind-background.png');
+            overflow: hidden;
         }
 
-        #splashText {
+        #rewind {
             position: absolute;
-            left: 1200px;
-            top: 750px;
-            width: 700px;
-            text-align: right;
-            font-size: 46px;
+            top: 40px;
+            width: 100%;
+            text-align: center;
+            font-size: 50px;
             font-family: "Rounded Elegance";
+            font-weight: bold;
             color: white;
+            text-shadow: rgba(0,0,0,.8) 1px 5px 10px;
+        }
+
+        #returnTimeContainer {
+            position: absolute;
+            top: 920px;
+            width: 235px;
+            left: 1684px;
+            text-align: center;
+            font-family: "Rounded Elegance";
+            font-weight: bold;
+            color: white;
+            text-shadow: rgba(0,0,0,.8) 1px 3px 10px;
+        }
+
+        #returnText {
+            font-size: 26px;
+        }
+
+        #returnTime {
+            margin-top: 10px;
+            font-size: 80px;
         }
     </style>
 </head>
 <body>
-    <div id="splashText"></div>
+    <div id="rewind"></div>
+    <div id="returnTimeContainer">
+        <div id="returnText">Live broadcast<br />will return</div>
+        <div id="returnTime"></div>
+    </div>
 
     <script src="../node_modules/moment/moment.js"></script>
     <script src="rewind.js"></script>
